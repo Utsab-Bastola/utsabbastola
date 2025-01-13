@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utsab Bastola's Website</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #495057;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* Navbar Styles */
+        .navbar {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 25px; /* Increased height */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .branding {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .branding h1 {
+            margin-right: 10px;
+            font-size: 1.7em;
+            color: #ffc107;
+        }
+        .navbar .branding span {
+            font-size: 1.2em;
+            color: #90ee90;
+            font-weight: bold;
+        }
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        .navbar li {
+            margin: 0 20px;
+        }
+        .navbar a {
+            color: #ffffff;
+            font-size: 1.2em;
+            padding: 7px 12px; /* Adjusted for better button size */
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffc107;
+            color: #212529;
+            border-radius: 5px;
+        }
+        /* Section Styles */
+        section {
+            height: 100vh;
+            padding: 100px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* Home Section */
+        .home {
+            background-color: #007BFF;
+            color: #ffffff;
+            flex-direction: column;
+        }
+        .home h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        .home p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #ffc107;
+            color: #212529;
+            padding: 20px 35px; /* Increased button size */
+            font-size: 1.3em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #e0a800;
+        }
+        /* About Section */
+        .about {
+            background-color: #4a4a4a; /* Made the gray lighter */
+            color: #ffffff;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .about-content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            max-width: 900px;
+        }
+        .about-text {
+            flex: 1;
+            background-color: #4a4a4a; /* Lightened text box color */
+            padding: 40px; /* Increased padding */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .about-text h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #add8e6;
+            text-decoration: underline;
+        }
+        .about-text p {
+            font-size: 1.2em;
+            line-height: 1.8; /* Adjusted for better readability */
+        }
+        .about-image {
+            display: none; /* Removed photo frame */
+        }
+        /* Contact Section */
+        .contact {
+            background-color: #f8f9fa;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            gap: 40px;
+        }
+        .contact .social-media {
+            flex: 1;
+            max-width: 300px;
+        }
+        .contact .social-media h2 {
+            font-size: 2.3em;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+        .contact .social-media a {
+            display: block;
+            margin-bottom: 15px;
+            color: #8b8000;
+            font-size: 1.2em;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .contact .social-media a:hover {
+            color: #0056b3;
+        }
+        .contact form {
+            flex: 2;
+            max-width: 550px; /* Adjusted size for better fit */
+            background-color: #ffffff;
+            padding: 30px; /* Adjusted padding */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact form label {
+            font-size: 1.2em;
+            margin-bottom: 1px;
+            display: block;
+            text-align: left;
+            color: #495057;
+        }
+        .contact form input,
+        .contact form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px; /* Increased margin for spacing */
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1.1em;
+            resize: none;
+            background-color: #f0f0f0;
+        }
+        .contact form button {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact form button:hover {
+            background-color: #0056b3;
+        }
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+            }
+            .navbar li {
+                margin: 10px 0;
+            }
+            section {
+                padding: 100px 20px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .home h1 {
+                font-size: 2em;
+            }
+            .home p {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="branding">
+            <h1>Utsab Bastola</h1>
+            <span>- Digital Creator</span>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <h1>Welcome to My Personal Website</h1>
+        <p>Hi, I’m Utsab Bastola, a passionate individual from Nepal. Explore my website and feel free to connect with me.</p>
+        <button class="cta-button" onclick="window.location.href='#contact'">Get Started</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hi, I’m Utsab Bastola, a 14-year-old tech enthusiast from Nepal with a passion for web development and innovation. Inspired by visionaries like Elon Musk, I love exploring new technologies, solving challenges, and building creative projects. When I’m not coding, you’ll find me strategizing over a game of chess. Let’s connect and create something amazing together! I believe in turning ideas into reality and making a positive impact on the world. My journey into the world of technology started at a young age, and every day brings new opportunities to learn and grow. Join me in this exciting adventure, and let’s shape the future together!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="social-media">
+            <h2>Connect With Me</h2>
+            <a href="https://www.facebook.com/profile.php?id=61559882263986" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/utsabbastola1018/" target="_blank">Instagram</a>
+            <a href="https://x.com/utsab_bastola" target="_blank">X (Twitter)</a>
+        </div>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Utsab Bastola. All rights reserved.</p>
+    </footer>
+
+    <!-- Chatbot Script -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/c0bef4e3-0e99-4003-9f52-7495ef6eee71/webchat/v2.1/config.js"></script>
+</body>
+</html>
